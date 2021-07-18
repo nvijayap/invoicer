@@ -36,5 +36,9 @@ jobs:
    - deploy:
        command: |
          if [ "${CIRCLE_BRANCH}" == "master" ]; then
-           echo OK
+           echo "master"
+           docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+           echo "OK"
+         else
+           echo "not master"
          fi
